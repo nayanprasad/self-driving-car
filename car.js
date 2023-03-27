@@ -5,6 +5,9 @@ class Car {
     this.width = width;
     this.height = height;
 
+    this.img = new Image();
+    this.img.src = "car.png";
+
     this.speed = 0;
     this.acceleration = 0.2;
     this.maxSpeed = 3;
@@ -52,8 +55,7 @@ class Car {
     ctx.rotate(-this.angle);
 
     ctx.beginPath();
-    ctx.rect(-this.width/2, -this.height/2, this.width, this.height);
-    ctx.fill();
+    ctx.drawImage(this.img, -this.width/2, -this.height/2, this.width, this.height);
 
     ctx.restore();
     
