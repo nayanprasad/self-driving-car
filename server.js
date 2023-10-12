@@ -6,5 +6,5 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "public")))
 
-const PORT = 3010;
+const PORT = 5000;
 app.listen(PORT, () => console.log("server started...", PORT))

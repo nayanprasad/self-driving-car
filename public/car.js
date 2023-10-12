@@ -6,7 +6,7 @@ class Car {
     this.height = height;
 
     this.img = new Image();
-    this.img.src = "car.png";
+    this.img.src = "./assets/car.png";
 
     this.speed = 0;
     this.acceleration = 0.2;
@@ -18,19 +18,19 @@ class Car {
   }
 
   update() {
-    if(this.controls.forward) 
+    if(this.controls.forward)
         this.speed += this.acceleration;
-    if(this.controls.reverse) 
+    if(this.controls.reverse)
         this.speed -= this.acceleration;
-    
+
     if(this.speed > this.maxSpeed)
         this.speed = this.maxSpeed;
     if(this.speed < -this.maxSpeed/2)
         this.speed = -this.maxSpeed/2;
-    
+
     if(this.speed > 0)
         this.speed -= this.friction;
-    if(this.speed < 0) 
+    if(this.speed < 0)
         this.speed += this.friction;
     if(Math.abs(this.speed) < this.friction)
         this.speed = 0;
@@ -58,6 +58,6 @@ class Car {
     ctx.drawImage(this.img, -this.width/2, -this.height/2, this.width, this.height);
 
     ctx.restore();
-    
+
   }
 }
