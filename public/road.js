@@ -34,7 +34,7 @@ class Road {
             }
             ctx.beginPath();
             ctx.moveTo(this.diff * i, this.top);
-            ctx.lineTo(this.diff * i, this.bottom * 20); // this make the line scketch effect
+            ctx.lineTo(this.diff * i, this.bottom * 20); // this make the line sketch effect
             ctx.stroke();
         }
     }
