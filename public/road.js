@@ -8,7 +8,7 @@ class Road {
         this.left = x - width/2 + 20;
         this.right = x + width/2 - 20;
 
-        const infinity = 1000000000;
+        const infinity = 10e6;
         this.top = -infinity;
         this.bottom = infinity;
     }
@@ -24,18 +24,18 @@ class Road {
 
         for(let i = 0; i <= this.lanes; i++) {
             if(i === 0 || i === this.lanes) {
+                ctx.strokeStyle = "white";
                 ctx.setLineDash([])
-                ctx.lineWidth = 12;
+                ctx.lineWidth = 20;
             }
             else {
-                // ctx.setLineDash([5, 20])
-                ctx.lineWidth = 4;
+                ctx.setLineDash([15, 20])
+                ctx.lineWidth = 8;
             }
             ctx.beginPath();
             ctx.moveTo(this.diff * i, this.top);
-            ctx.lineTo(this.diff * i, this.bottom);
+            ctx.lineTo(this.diff * i, this.bottom * 20); // this make the line scketch effect
             ctx.stroke();
-            ctx.closePath()
         }
     }
 }
