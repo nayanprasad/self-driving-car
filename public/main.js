@@ -3,7 +3,7 @@ canvas.width = 500;
 
 const ctx = canvas.getContext("2d");
 const road = new Road(canvas.width/2, canvas.width);
-const car = new Car(canvas.width/2, 700, 40, 60);
+const car = new Car(road.getRoadCenter(), 700, 40, 60);
 
 
 animate();

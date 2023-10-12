@@ -1,5 +1,5 @@
 class Road {
-    constructor(x, width, lanes = 3) {
+    constructor(x, width, lanes = 4) {
         this.x = x;
         this.width = width ;
         this.lanes = lanes;
@@ -11,6 +11,11 @@ class Road {
         const infinity = 1000000000;
         this.top = -infinity;
         this.bottom = infinity;
+    }
+
+    getRoadCenter(laneIndex = this.lanes/2) {
+        const index = laneIndex < 0 || laneIndex > this.lanes ? this.lanes/2  : laneIndex;
+        return this.lanes % 2 === 0 ? this.diff * index + this.diff/2 : this.diff * index;
     }
 
     draw(ctx) {
