@@ -29,12 +29,12 @@ class Road {
                 ctx.lineWidth = 20;
             }
             else {
-                ctx.setLineDash([15, 20])
+                ctx.setLineDash([50, 30])
                 ctx.lineWidth = 8;
             }
             ctx.beginPath();
             ctx.moveTo(this.diff * i, this.top);
-            ctx.lineTo(this.diff * i, this.bottom * 20); // this make the line sketch effect
+            ctx.lineTo(this.diff * i, this.bottom);
             ctx.stroke();
         }
     }
