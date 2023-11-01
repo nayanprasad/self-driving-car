@@ -6,9 +6,9 @@ class Sensor {
         this.angle = car.angle;
 
         this.car = car;
-        this.rayCount = 2;
+        this.rayCount = 5;
         this.rayLength = 200;
-        this.raySpread = 0.5;
+        this.raySpread = 0.1;
         this.rays = [];
     }
 
