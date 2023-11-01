@@ -37,7 +37,9 @@ class Road {
             ctx.lineTo(this.diff * i, this.bottom);
             ctx.stroke();
         }
-
+        //
+        // console.log(this.boundaries[1][0].x, this.boundaries[1][0].y)
+        // console.log(this.boundaries[1][1].x, this.boundaries[1][1].y)
         ctx.setLineDash([])
         ctx.lineWidth = 15;
         ctx.beginPath();
