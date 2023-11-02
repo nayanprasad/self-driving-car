@@ -6,9 +6,9 @@ class Sensor {
         this.angle = car.angle;
 
         this.car = car;
-        this.rayCount = 2;
-        this.rayLength = 200;
-        this.raySpread = 0.3;
+        this.rayCount = 4; // 1 dont works
+        this.rayLength = 300;
+        this.raySpread = 1;
         this.rays = [];
     }
 
@@ -16,7 +16,7 @@ class Sensor {
         ctx.strokeStyle = "yellow";
         ctx.lineWidth = 1;
         for (let i = 0; i < this.rayCount; i++) {
-            const angle = this.car.angle + (i - this.rayCount / 2) * this.raySpread;
+            const angle = (this.raySpread / 2 + (-this.raySpread / 2 - this.raySpread / 2) * i / (this.rayCount - 1) )+ this.car.angle
             ctx.beginPath();
             ctx.moveTo(this.car.x, this.car.y);
             ctx.lineTo(this.car.x - Math.sin(angle) * this.rayLength, this.car.y - Math.cos(angle) * this.rayLength);

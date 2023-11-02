@@ -4,7 +4,6 @@ class Car {
         this.y = y;
         this.width = width;
         this.height = height;
-
         this.boundaries = boundaries;
 
         this.img = new Image();
