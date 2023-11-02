@@ -16,6 +16,7 @@ class Car {
         this.friction = 0.05;
         this.angle = 0;
 
+        this.sensor = new Sensor(this);
         this.controls = new Controls();
     }
 
@@ -67,10 +68,6 @@ class Car {
             ctx.drawImage(this.img, -this.width / 2, -this.height / 2, this.width, this.height);
         ctx.restore();
 
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 5, 0, Math.PI * 2);
-        ctx.restore()
-
-
+        this.sensor.draw(ctx);
     }
 }

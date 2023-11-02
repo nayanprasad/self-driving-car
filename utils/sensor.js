@@ -6,24 +6,20 @@ class Sensor {
         this.angle = car.angle;
 
         this.car = car;
-        this.rayCount = 5;
+        this.rayCount = 2;
         this.rayLength = 200;
-        this.raySpread = 0.1;
+        this.raySpread = 0.3;
         this.rays = [];
-    }
-
-    update() {
-        this.x = car.x;
-        this.angle = car.angle;
     }
 
     draw(ctx) {
         ctx.strokeStyle = "yellow";
+        ctx.lineWidth = 1;
         for (let i = 0; i < this.rayCount; i++) {
-            const angle = this.angle + (i - this.rayCount / 2) * this.raySpread;
+            const angle = this.car.angle + (i - this.rayCount / 2) * this.raySpread;
             ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(this.x - Math.sin(angle) * this.rayLength, this.y - Math.cos(angle) * this.rayLength);
+            ctx.moveTo(this.car.x, this.car.y);
+            ctx.lineTo(this.car.x - Math.sin(angle) * this.rayLength, this.car.y - Math.cos(angle) * this.rayLength);
             ctx.stroke();
         }
     }
