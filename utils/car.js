@@ -19,7 +19,7 @@ class Car {
         this.controls = new Controls();
     }
 
-    update() {
+    update(boundaries) {
         if (this.controls.forward)
             this.speed += this.acceleration;
         if (this.controls.reverse)
@@ -48,14 +48,17 @@ class Car {
         this.x -= Math.sin(this.angle) * this.speed;
         this.y -= Math.cos(this.angle) * this.speed;
 
-        this.checkBoundaries();
+        this.checkBoundaries(boundaries);
+
+        this.sensor.update(boundaries);
+
     }
 
-    checkBoundaries() {
-        if (this.x > this.boundaries[0][0].x - this.width)
-            this.x = this.boundaries[0][0].x - this.width
-        if (this.x < this.boundaries[1][0].x + this.width)
-            this.x = this.boundaries[1][0].x + this.width;
+    checkBoundaries(boundaries) {
+        if (this.x > boundaries[0][0].x - this.width)
+            this.x = boundaries[0][0].x - this.width
+        if (this.x < boundaries[1][0].x + this.width)
+            this.x = boundaries[1][0].x + this.width;
     }
 
 
