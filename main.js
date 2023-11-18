@@ -3,11 +3,17 @@ canvas.width = 400;
 
 const ctx = canvas.getContext("2d");
 const road = new Road(canvas.width / 2, canvas.width);
-const car = new Car(road.getRoadCenter(), 700, 40, 60, road.boundaries);
-const traffic = [
-    new Traffic(road.getRoadCenter() - 100, 700, 40, 60, 2),
-    new Traffic(road.getRoadCenter() + 100, 700, 40, 60, 1.5)
-];
+const car = new Car(road.getRoadCenter(), 900, 40, 60, road.boundaries);
+const traffic = [];
+for (let i = 0; i < 20; i++) {
+    traffic.push(new Traffic(
+        road.getRoadCenter() - 150 + Math.random() * 300,
+        700 - i * 150,
+        40,
+        60,
+        Math.random() * 3 + 0.5
+    ));
+}
 
 animate();
 
